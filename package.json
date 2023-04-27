@@ -1,0 +1,55 @@
+{
+  "name": "@lumoscompany/chainplugin",
+  "version": "0.1.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "prepack": "rm -rf ./build && rm -rf ./typings ",
+    "prepare": "npm run --silent build",
+    "build": "npx tsc",
+    "checks": "npm run lint && npm run test",
+    "test": "exit 0",
+    "lint": "eslint ./source"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lumoscompany/chainplugin.git"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": "^12.20.0 || >=14.13.1"
+  },
+  "keywords": [
+    "blockhain",
+    "plugin",
+    "js",
+    "cube"
+  ],
+  "types": "./typings/index.d.ts",
+  "author": "Adam Stragner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lumoscompany/chainplugin/issues"
+  },
+  "homepage": "https://github.com/lumoscompany/chainplugin#readme",
+  "exports": {
+    ".": {
+      "types": "./typings/index.d.ts",
+      "default": "./build/index.js"
+    }
+  },
+  "files": [
+    "bin/*",
+    "source/**/*.ts",
+    "build/**/*.js",
+    "typings/**/*.d.ts",
+    "typings/**/*.d.ts.map",
+    "types.*",
+    "format.*",
+    "filters.*",
+    "future.*"
+  ],
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}
