@@ -1,8 +1,16 @@
 import { EventsProvider } from './eventsProvider'
 import { AssetsProvider } from './assetsProvider'
 import { MessagesProvider } from './messagesProvider'
+import { Environment } from './environment'
 
-type Chainplugin = {
+/**
+ * A {@link AssetsProvider | Chainplugin} constructor
+ */
+interface ChainpluginConstructor {
+  new (args: Environment): Chainplugin
+}
+
+interface Chainplugin {
   /**
    * Method that invoked by native code to get assets provider
    *
@@ -25,4 +33,4 @@ type Chainplugin = {
   messages(): Promise<MessagesProvider>
 }
 
-export type { Chainplugin }
+export type { Chainplugin, ChainpluginConstructor }

@@ -1,18 +1,20 @@
-import { Chainplugin } from './chainplugin'
+import { ChainpluginConstructor } from './chainplugin'
 
 /**
  * Just a method to simplify work with types
  *
  * @example
  * ```
- * export default chainplugin({ ... })
+ * class BlockchainPlugin implements Chainplugin {}
+ *
+ * export default chainplugin(BlockchainPlugin)
  * ```
  *
  *
  * @param args {@link Chainplugin | Chainplugin}
  * @returns
  */
-const chainplugin = (args: Chainplugin) => {
+const chainplugin = (args: ChainpluginConstructor) => {
   return args
 }
 
@@ -23,5 +25,6 @@ export * from './eventsProvider'
 export * from './assetsProvider'
 export * from './messagesProvider'
 export * from './visualRepresentation'
+export * from './environment'
 
 export default chainplugin
