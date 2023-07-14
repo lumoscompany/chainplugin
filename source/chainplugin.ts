@@ -1,6 +1,7 @@
 import { EventsProvider } from './eventsProvider'
 import { AssetsProvider } from './assetsProvider'
 import { MessagesProvider } from './messagesProvider'
+import { BrowserProvider } from './browserProvider'
 import { Environment } from './environment'
 
 /**
@@ -11,6 +12,13 @@ interface ChainpluginConstructor {
 }
 
 interface Chainplugin {
+  /**
+   * Method that invoked by native code to get browser provider
+   *
+   * @returns Promise with {@link BrowserProvider | BrowserProvider}
+   */
+  browser(): Promise<BrowserProvider>
+
   /**
    * Method that invoked by native code to get assets provider
    *
