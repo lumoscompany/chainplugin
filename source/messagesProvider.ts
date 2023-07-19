@@ -54,10 +54,10 @@ type BakedMessageData = {
   shouldSign: string
 
   /**
-   * Estimated fees for the message execution, USD
-   * Double
+   * Estimated fees for the message execution, measured in native network asset
+   * BigUInt
    */
-  estimatedFees: number
+  estimatedFees: string
 
   /**
    * Data to internal plugin usage
