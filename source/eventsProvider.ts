@@ -142,6 +142,16 @@ type EventsProviderFetchRequest = {
 } & (EventsProviderFetchRequestAfter | EventsProviderFetchRequestBefore)
 
 /**
+ * A response with updated an event's statu.
+ */
+type EventsProviderStatusResponse = {
+  /**
+   * An event's updated status
+   */
+  status: EventStatus
+}
+
+/**
  * An type that used by native code to manipulate with events
  */
 type EventsProvider = {
@@ -160,9 +170,9 @@ type EventsProvider = {
    * Method that can be invoked by native code to update an event's status
    *
    * @param args - {@link EventHash | EventHash}
-   * @returns Promise with updated event's status {@link EventStatus | EventStatus}
+   * @returns Promise with updated event's status {@link EventsProviderStatusResponse | EventsProviderStatusResponse}
    */
-  status(args: EventHash): Promise<EventStatus>
+  status(args: EventHash): Promise<EventsProviderStatusResponse>
 
   /**
    * Method that invoked by native code to fetch list of events for specified account address
@@ -178,9 +188,11 @@ type EventsProvider = {
 
 export type {
   EventsProvider,
+  EventsProviderUpdateRequest,
   EventsProviderFetchRequest,
   EventsProviderFetchRequestAfter,
   EventsProviderFetchRequestBefore,
+  EventsProviderStatusResponse,
   EventHash,
   EventStatus,
   EventType,
