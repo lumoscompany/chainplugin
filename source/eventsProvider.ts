@@ -102,6 +102,16 @@ type Event = EventHash & {
 }
 
 /**
+ * A request to retrieve updated verions of event for specified account address
+ */
+type EventsProviderUpdateRequest = {
+  /**
+   * Previous version of event that have been marked as `incomplete`
+   */
+  event: Event
+}
+
+/**
  * An additional fields to the {@link EventsProviderFetchRequest | EventsProviderFetchRequest} to retrieve events for specified account address before specified date
  */
 type EventsProviderFetchRequestBefore = {
@@ -141,10 +151,10 @@ type EventsProvider = {
    * @remarks
    * It strongly recommended to return event which field `incomplete` marked as `false` to avoid unnecessary network usage
    *
-   * @param args - {@link EventHash | EventHash}
+   * @param args - {@link EventsProviderUpdateRequest | EventsProviderUpdateRequest}
    * @returns Promise with updated {@link Event | Event}
    */
-  update(args: EventHash): Promise<Event>
+  update(args: EventsProviderUpdateRequest): Promise<Event>
 
   /**
    * Method that can be invoked by native code to update an event's status
