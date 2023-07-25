@@ -48,6 +48,11 @@ type CurrencyFormattedText = {
  */
 type FormattedText = {
   value: string
+
+  /**
+   * default is false
+   */
+  copyable?: boolean
 } & (CurrencyFormattedText | {})
 
 /**
