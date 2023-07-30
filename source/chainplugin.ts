@@ -2,13 +2,12 @@ import { EventsProvider } from './eventsProvider'
 import { AssetsProvider } from './assetsProvider'
 import { MessagesProvider } from './messagesProvider'
 import { BrowserProvider } from './browserProvider'
-import { Environment } from './environment'
 
 /**
  * A {@link AssetsProvider | Chainplugin} constructor
  */
 interface ChainpluginConstructor {
-  new (args: Environment): Chainplugin
+  new (): Chainplugin
 }
 
 interface Chainplugin {

@@ -26,6 +26,6 @@ export * from './assetsProvider'
 export * from './browserProvider'
 export * from './messagesProvider'
 export * from './visualRepresentation'
-export * from './environment'
+export * from './globalEnvironment'
 
 export default chainplugin
