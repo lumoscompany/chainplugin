@@ -1,14 +1,25 @@
 import { AccountAddress, AssetAddress } from './address'
 
+type MessageAuthor = {
+  /**
+   * Address of account owner
+   */
+  address: AccountAddress
+  /**
+   * HEX
+   */
+  publicKey: String
+}
+
 /**
  * An type that represents a transfer user action
  */
 type MessageTransfer = {
   transfer: {
     /**
-     * Address of account owner
+     * An author of the message
      */
-    sender: AccountAddress
+    author: MessageAuthor
 
     /**
      * An destination address
@@ -119,6 +130,7 @@ type MessagesProvider = {
 export type {
   MessagesProvider,
   Message,
+  MessageAuthor,
   MessageTransfer,
   BakeMessageRequest,
   BakedMessageData,
