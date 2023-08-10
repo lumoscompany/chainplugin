@@ -103,7 +103,7 @@ type SendMessageRequest = {
  */
 type SendedMessageData = {
   originalMessage: Message
-  eventHash: string
+  eventHash?: string
 }
 
 /**
