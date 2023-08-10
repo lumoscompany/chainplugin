@@ -2,11 +2,11 @@ type GenerateAddressRequest = {
   /**
    * HEX
    */
-  publicKey: String
+  publicKey: string
 }
 
 type AddressValue = {
-  address: String
+  address: string
 }
 
 /**
