@@ -2,6 +2,7 @@ import { EventsProvider } from './eventsProvider'
 import { AssetsProvider } from './assetsProvider'
 import { MessagesProvider } from './messagesProvider'
 import { BrowserProvider } from './browserProvider'
+import { AddressProvider } from './addressProvider'
 
 /**
  * A {@link AssetsProvider | Chainplugin} constructor
@@ -11,6 +12,13 @@ interface ChainpluginConstructor {
 }
 
 interface Chainplugin {
+  /**
+   * Method that invoked by native code to get address provider
+   *
+   * @returns Promise with {@link AddressProvider | AddressProvider}
+   */
+  address?(): Promise<AddressProvider>
+
   /**
    * Method that invoked by native code to get browser provider
    *

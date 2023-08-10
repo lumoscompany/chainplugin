@@ -25,6 +25,7 @@ export * from './eventsProvider'
 export * from './assetsProvider'
 export * from './browserProvider'
 export * from './messagesProvider'
+export * from './addressProvider'
 export * from './visualRepresentation'
 export * from './globalEnvironment'
 
