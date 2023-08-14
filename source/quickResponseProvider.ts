@@ -5,8 +5,9 @@ type QuickResponseResolveRequest = {
 }
 
 type QuickResponseActionTransfer = {
-  asset: AssetAddress
   recipient: string
+
+  asset?: AssetAddress
 
   /**
    * BigInt
