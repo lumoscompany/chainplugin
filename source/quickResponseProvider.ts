@@ -38,9 +38,7 @@ type QuickResponseGenerateRequest = {
   purpose: QuickResponsePurpose
 }
 
-type QuickResponseGenerateResponse = {
-  value?: QuickResponseValue
-}
+type QuickResponseGenerateResponse = Partial<QuickResponseValue>
 
 /**
  * An type that used by native code to manipulate with QR codes
