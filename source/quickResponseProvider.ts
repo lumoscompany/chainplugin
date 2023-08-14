@@ -5,14 +5,15 @@ type QuickResponseResolveRequest = {
 }
 
 type QuickResponseActionTransfer = {
-  recipient: string
+  transfer: {
+    recipient: string
+    asset?: AssetAddress
 
-  asset?: AssetAddress
-
-  /**
-   * BigInt
-   */
-  amount?: string
+    /**
+     * BigInt
+     */
+    amount?: string
+  }
 }
 
 type QuickResponseAction = {} | QuickResponseActionTransfer
