@@ -1,12 +1,13 @@
-import { AssetAddress } from './address'
+import { AccountAddress, AssetAddress } from './address'
+import { Asset } from './assetsProvider'
 
-type QuickResponseResolveRequest = {
+type QuickResponseValue = {
   value: string
 }
 
 type QuickResponseActionTransfer = {
   transfer: {
-    recipient: string
+    recipient: AccountAddress
     asset?: AssetAddress
 
     /**
@@ -18,8 +19,27 @@ type QuickResponseActionTransfer = {
 
 type QuickResponseAction = {} | QuickResponseActionTransfer
 
+type QuickResponseResolveRequest = QuickResponseValue
+
 type QuickResponseResolveResponse = {
   action?: QuickResponseAction
+}
+
+type QuickResponsePurposeTransfer = {
+  transfer: {
+    recipient: AccountAddress
+    asset?: Asset
+  }
+}
+
+type QuickResponsePurpose = {} | QuickResponsePurposeTransfer
+
+type QuickResponseGenerateRequest = {
+  purpose: QuickResponseAction
+}
+
+type QuickResponseGenerateResponse = {
+  purpose: QuickResponsePurpose
 }
 
 /**
@@ -35,12 +55,26 @@ type QuickResponseProvider = {
   resolve(
     args: QuickResponseResolveRequest
   ): Promise<QuickResponseResolveResponse>
+
+  /**
+   * Method that invoked by native code to generate QR code for a special purpose
+   *
+   * @param args - {@link QuickResponseGenerateRequest | QuickResponseGenerateRequest}
+   * @returns Promise with a {@link QuickResponseResolveResponse | QuickResponseResolveResponse}
+   */
+  generate(
+    args: QuickResponseGenerateRequest
+  ): Promise<QuickResponseGenerateResponse>
 }
 
 export type {
   QuickResponseProvider,
-  QuickResponseResolveRequest,
-  QuickResponseResolveResponse,
   QuickResponseAction,
   QuickResponseActionTransfer,
+  QuickResponsePurpose,
+  QuickResponsePurposeTransfer,
+  QuickResponseResolveRequest,
+  QuickResponseResolveResponse,
+  QuickResponseGenerateRequest,
+  QuickResponseGenerateResponse,
 }
