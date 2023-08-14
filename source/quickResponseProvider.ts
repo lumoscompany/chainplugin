@@ -35,7 +35,7 @@ type QuickResponsePurposeTransfer = {
 type QuickResponsePurpose = {} | QuickResponsePurposeTransfer
 
 type QuickResponseGenerateRequest = {
-  purpose: QuickResponseAction
+  purpose: QuickResponsePurpose
 }
 
 type QuickResponseGenerateResponse = {
