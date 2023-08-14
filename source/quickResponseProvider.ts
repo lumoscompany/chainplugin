@@ -1,14 +1,20 @@
+import { AssetAddress } from './address'
+
 type QuickResponseResolveRequest = {
   value: string
 }
 
-type QuickResponseResolveResponseTransfer = {
-  asset: string
-  amount: string
+type QuickResponseActionTransfer = {
+  asset: AssetAddress
   recipient: string
+
+  /**
+   * BigInt
+   */
+  amount?: string
 }
 
-type QuickResponseResolveResponse = {} | QuickResponseResolveResponseTransfer
+type QuickResponseAction = {} | QuickResponseActionTransfer
 
 /**
  * An type that used by native code to manipulate with QR codes
@@ -18,16 +24,16 @@ type QuickResponseProvider = {
    * Method that invoked by native code to resolve action for a QR code
    *
    * @param args - {@link QuickResponseResolveRequest | QuickResponseResolveRequest}
-   * @returns Promise with a {@link QuickResponseResolveResponse | QuickResponseResolveResponse}
+   * @returns Promise with a {@link QuickResponseAction | QuickResponseAction}
    */
   resolve(
     args: QuickResponseResolveRequest
-  ): Promise<QuickResponseResolveResponse>
+  ): Promise<QuickResponseAction | undefined>
 }
 
 export type {
   QuickResponseProvider,
   QuickResponseResolveRequest,
-  QuickResponseResolveResponse,
-  QuickResponseResolveResponseTransfer,
+  QuickResponseAction,
+  QuickResponseActionTransfer,
 }
