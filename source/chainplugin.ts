@@ -3,6 +3,7 @@ import { AssetsProvider } from './assetsProvider'
 import { MessagesProvider } from './messagesProvider'
 import { BrowserProvider } from './browserProvider'
 import { AddressProvider } from './addressProvider'
+import { QuickResponseProvider } from './quickResponseProvider'
 
 /**
  * A {@link AssetsProvider | Chainplugin} constructor
@@ -18,6 +19,13 @@ interface Chainplugin {
    * @returns Promise with {@link AddressProvider | AddressProvider}
    */
   address?(): Promise<AddressProvider>
+
+  /**
+   * Method that invoked by native code to manipulate with QR codes
+   *
+   * @returns Promise with {@link QuickResponseProvider | QuickResponseProvider}
+   */
+  qr?(): Promise<QuickResponseProvider>
 
   /**
    * Method that invoked by native code to get browser provider

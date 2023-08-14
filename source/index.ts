@@ -26,6 +26,7 @@ export * from './assetsProvider'
 export * from './browserProvider'
 export * from './messagesProvider'
 export * from './addressProvider'
+export * from './quickResponseProvider'
 export * from './visualRepresentation'
 export * from './globalEnvironment'
 
