@@ -16,6 +16,10 @@ type QuickResponseActionTransfer = {
 
 type QuickResponseAction = {} | QuickResponseActionTransfer
 
+type QuickResponseResolveResponse = {
+  action?: QuickResponseAction
+}
+
 /**
  * An type that used by native code to manipulate with QR codes
  */
@@ -24,16 +28,17 @@ type QuickResponseProvider = {
    * Method that invoked by native code to resolve action for a QR code
    *
    * @param args - {@link QuickResponseResolveRequest | QuickResponseResolveRequest}
-   * @returns Promise with a {@link QuickResponseAction | QuickResponseAction}
+   * @returns Promise with a {@link QuickResponseResolveResponse | QuickResponseResolveResponse}
    */
   resolve(
     args: QuickResponseResolveRequest
-  ): Promise<QuickResponseAction | undefined>
+  ): Promise<QuickResponseResolveResponse>
 }
 
 export type {
   QuickResponseProvider,
   QuickResponseResolveRequest,
+  QuickResponseResolveResponse,
   QuickResponseAction,
   QuickResponseActionTransfer,
 }
