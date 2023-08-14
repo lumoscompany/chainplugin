@@ -39,7 +39,7 @@ type QuickResponseGenerateRequest = {
 }
 
 type QuickResponseGenerateResponse = {
-  purpose: QuickResponsePurpose
+  value?: QuickResponseValue
 }
 
 /**
