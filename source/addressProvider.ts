@@ -9,6 +9,17 @@ type AddressValue = {
   address: string
 }
 
+type ValidateAddressPurposeTransfer = {
+  transfer: {}
+}
+
+type ValidateAddressPurpose = {} | ValidateAddressPurposeTransfer
+
+type ValidateAddressRequest = {
+  address: string
+  purpose?: ValidateAddressPurpose
+}
+
 /**
  * An type that used by native code to manipulate with custom addresses
  */
@@ -26,7 +37,14 @@ type AddressProvider = {
    *
    * @param args - {@link ValidateAddressRequest | ValidateAddressRequest}
    */
-  validate(args: AddressValue): Promise<void>
+  validate(args: ValidateAddressRequest): Promise<void>
 }
 
-export type { AddressProvider, GenerateAddressRequest, AddressValue }
+export type {
+  AddressProvider,
+  ValidateAddressPurpose,
+  ValidateAddressPurposeTransfer,
+  ValidateAddressRequest,
+  GenerateAddressRequest,
+  AddressValue,
+}
